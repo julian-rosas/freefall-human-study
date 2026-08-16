@@ -1,0 +1,13 @@
+body {
+  background: white;
+}
+
+.jspsych-content {
+  max-width: 900px;
+}
+
+.stimulus-image {
+  width: 700px;
+  max-width: 92vw;
+  height: auto;
+}

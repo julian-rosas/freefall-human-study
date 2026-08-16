@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -11,25 +13,46 @@
 
   <title>Physical Foresight Study</title>
 
-  <!-- jsPsych core -->
-  <script src="https://unpkg.com/jspsych@8.3.0"></script>
 
-  <!-- Plugins -->
-  <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
+  <!-- ==========================================
+       jsPsych
+       ========================================== -->
 
-  <script src="https://unpkg.com/@jspsych/plugin-survey-text@2.1.1"></script>
+  <script
+    src="https://unpkg.com/jspsych@8.3.0">
+  </script>
 
-  <script src="https://unpkg.com/@jspsych/plugin-survey-likert@2.2.0"></script>
 
-  <script src="https://unpkg.com/@jspsych/plugin-sketchpad@2.1.0"></script>
+  <!-- ==========================================
+       Plugins
+       ========================================== -->
 
-  <!-- jsPsych CSS -->
+  <script
+    src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0">
+  </script>
+
+  <script
+    src="https://unpkg.com/@jspsych/plugin-survey-text@2.1.1">
+  </script>
+
+  <script
+    src="https://unpkg.com/@jspsych/plugin-survey-likert@2.2.0">
+  </script>
+
+  <script
+    src="https://unpkg.com/@jspsych/plugin-sketchpad@2.1.0">
+  </script>
+
+
+  <!-- ==========================================
+       CSS
+       ========================================== -->
+
   <link
     rel="stylesheet"
     href="https://unpkg.com/jspsych@8.3.0/css/jspsych.css"
   >
 
-  <!-- Our CSS -->
   <link
     rel="stylesheet"
     href="style.css"
@@ -37,9 +60,57 @@
 
 </head>
 
+
 <body>
 
+
+  <!-- ==========================================
+       IFRAME INVISIBLE
+
+       Apps Script responderá aquí.
+       El participante nunca lo ve.
+       ========================================== -->
+
+  <iframe
+    id="save_target"
+    name="save_target"
+    style="display:none;">
+  </iframe>
+
+
+  <!-- ==========================================
+       FORMULARIO INVISIBLE
+
+       Esto manda el JSON hacia Apps Script.
+       ========================================== -->
+
+  <form
+    id="save_form"
+    method="POST"
+    target="save_target"
+    style="display:none;">
+
+    <input
+      type="hidden"
+      id="save_payload"
+      name="payload"
+    >
+
+    <input
+      type="hidden"
+      id="save_nonce"
+      name="nonce"
+    >
+
+  </form>
+
+
+  <!-- ==========================================
+       Nuestro experimento
+       ========================================== -->
+
   <script src="app.js"></script>
+
 
 </body>
 

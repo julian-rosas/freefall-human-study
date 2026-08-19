@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="es">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -9,49 +11,82 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Physical Foresight Study</title>
+  <title>
+    Estudio de predicción física
+  </title>
+
 
   <!-- jsPsych -->
-  <script src="https://unpkg.com/jspsych@8.3.0"></script>
+
+  <script
+    src="https://unpkg.com/jspsych@8.3.0">
+  </script>
+
 
   <!-- Plugins -->
-  <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
-  <script src="https://unpkg.com/@jspsych/plugin-survey-text@2.1.1"></script>
-  <script src="https://unpkg.com/@jspsych/plugin-survey-likert@2.2.0"></script>
-  <script src="https://unpkg.com/@jspsych/plugin-sketchpad@2.1.0"></script>
 
-  <!-- jsPsych CSS -->
+  <script
+    src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0">
+  </script>
+
+  <script
+    src="https://unpkg.com/@jspsych/plugin-survey-text@2.1.1">
+  </script>
+
+  <script
+    src="https://unpkg.com/@jspsych/plugin-survey-likert@2.2.0">
+  </script>
+
+  <script
+    src="https://unpkg.com/@jspsych/plugin-sketchpad@2.1.0">
+  </script>
+
+
+  <!-- CSS de jsPsych -->
+
   <link
     rel="stylesheet"
     href="https://unpkg.com/jspsych@8.3.0/css/jspsych.css"
   >
 
-  <!-- Study CSS -->
-  <link rel="stylesheet" href="style.css">
+
+  <!-- CSS del estudio -->
+
+  <link
+    rel="stylesheet"
+    href="style.css?v=all24-v3"
+  >
+
 </head>
+
 
 <body>
 
+
   <!--
-    Invisible iframe used by Google Apps Script to return
-    a save confirmation without leaving the study page.
+    Iframe invisible utilizado para recibir
+    la confirmación de Google Apps Script.
   -->
+
   <iframe
     id="save_target"
     name="save_target"
-    style="display:none;"
-  ></iframe>
+    style="display:none;">
+  </iframe>
+
 
   <!--
-    Invisible form that sends the final JSON payload
-    to Google Apps Script.
+    Formulario invisible que envía
+    el JSON completo a Google Apps Script.
   -->
+
   <form
     id="save_form"
     method="POST"
     target="save_target"
     style="display:none;"
   >
+
     <input
       type="hidden"
       id="save_payload"
@@ -63,10 +98,17 @@
       id="save_nonce"
       name="nonce"
     >
+
   </form>
 
-  <!-- Study -->
-  <script src="app.js"></script>
+
+  <!-- Estudio -->
+
+  <script
+    src="app.js?v=all24-v3">
+  </script>
+
 
 </body>
+
 </html>

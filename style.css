@@ -1,133 +1,74 @@
 body {
   margin: 0;
   padding: 0;
-
   background: white;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
 
 .jspsych-content {
-
   max-width: 900px;
-
   margin-left: auto;
   margin-right: auto;
-
 }
-
 
 .study-block {
-
   max-width: 700px;
-
-  margin:
-    40px auto;
-
+  margin: 40px auto;
   text-align: center;
-
+  line-height: 1.55;
 }
-
 
 .trial-container {
-
   max-width: 800px;
-
-  margin:
-    0 auto;
-
+  margin: 0 auto;
+  text-align: center;
 }
 
+.trial-progress {
+  margin: 8px auto 10px auto;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.7;
+}
 
 .event-prompt {
-
   max-width: 700px;
-
-  margin:
-    15px auto 20px auto;
-
+  margin: 15px auto 20px auto;
   line-height: 1.5;
-
 }
-
 
 .stimulus-image {
-
   display: block;
-
   width: 700px;
-
   max-width: 92vw;
-
   height: auto;
-
-  margin:
-    20px auto;
-
+  margin: 20px auto;
 }
-
 
 .trajectory-instructions {
-
   max-width: 750px;
-
-  margin:
-    0 auto 20px auto;
-
+  margin: 0 auto 20px auto;
   text-align: center;
-
   line-height: 1.5;
-
 }
-
 
 .status-screen {
-
   max-width: 650px;
-
-  margin:
-    120px auto;
-
-  padding:
-    30px;
-
+  margin: 120px auto;
+  padding: 30px;
   text-align: center;
-
   line-height: 1.6;
-
 }
-
 
 .small-text {
-
-  margin-top:
-    30px;
-
-  font-size:
-    12px;
-
-  opacity:
-    0.65;
-
+  margin-top: 30px;
+  font-size: 12px;
+  opacity: 0.65;
 }
 
-
 .retry-button {
-
-  font-size:
-    16px;
-
-  padding:
-    10px 20px;
-
-  margin-top:
-    15px;
-
-  cursor:
-    pointer;
-
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-top: 15px;
+  cursor: pointer;
 }

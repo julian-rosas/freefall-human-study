@@ -4,10 +4,13 @@
 // Cada participante ve los 24 frames.
 // =========================================================
 
-const STUDY_ID = "freefall_rq3_v1";
-const FRONTEND_VERSION = "wacv_all24_v2_es";
+const STUDY_ID =
+  "freefall_rq3_v1";
 
-// Google Apps Script
+const FRONTEND_VERSION =
+  "wacv_all24_v4_es_ack";
+
+
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyajfaGwm7QccGyi6llNkjGnMV5cLZiZa80OqnUqaaZwiyJnITupEskXLc9X4CYtjI/exec";
 
@@ -17,22 +20,34 @@ const SCRIPT_URL =
 // =========================================================
 
 let participantId =
-  sessionStorage.getItem("wacv_participant_id");
+  sessionStorage.getItem(
+    "wacv_participant_id"
+  );
+
 
 if (!participantId) {
-  participantId = generateId();
+
+  participantId =
+    generateId();
+
 
   sessionStorage.setItem(
     "wacv_participant_id",
     participantId
   );
+
 }
 
+
 const BACKUP_KEY =
-  "wacv_backup_" + participantId;
+  "wacv_backup_" +
+  participantId;
+
 
 const ORDER_KEY =
-  "wacv_order_" + participantId;
+  "wacv_order_" +
+  participantId;
+
 
 const clientStartedAt =
   new Date().toISOString();
@@ -45,111 +60,216 @@ const clientStartedAt =
 const SOURCES = [
 
   {
-    source_id: "ball_take1_clip1",
-    object: "ball",
-    take: 1,
-    clip_number: 1,
+    source_id:
+      "ball_take1_clip1",
+
+    object:
+      "ball",
+
+    take:
+      1,
+
+    clip_number:
+      1,
+
     base:
       "stimuli/freefall/ball/freefall_ball_1 (1)"
   },
 
+
   {
-    source_id: "ball_take1_clip8",
-    object: "ball",
-    take: 1,
-    clip_number: 8,
+    source_id:
+      "ball_take1_clip8",
+
+    object:
+      "ball",
+
+    take:
+      1,
+
+    clip_number:
+      8,
+
     base:
       "stimuli/freefall/ball/freefall_ball_1 (8)"
   },
 
+
   {
-    source_id: "ball_take2_clip1",
-    object: "ball",
-    take: 2,
-    clip_number: 1,
+    source_id:
+      "ball_take2_clip1",
+
+    object:
+      "ball",
+
+    take:
+      2,
+
+    clip_number:
+      1,
+
     base:
       "stimuli/freefall/ball/freefall_ball_2 (1)"
   },
 
+
   {
-    source_id: "ball_take2_clip8",
-    object: "ball",
-    take: 2,
-    clip_number: 8,
+    source_id:
+      "ball_take2_clip8",
+
+    object:
+      "ball",
+
+    take:
+      2,
+
+    clip_number:
+      8,
+
     base:
       "stimuli/freefall/ball/freefall_ball_2 (8)"
   },
 
 
   {
-    source_id: "redcube_take1_clip1",
-    object: "redcube",
-    take: 1,
-    clip_number: 1,
+    source_id:
+      "redcube_take1_clip1",
+
+    object:
+      "redcube",
+
+    take:
+      1,
+
+    clip_number:
+      1,
+
     base:
       "stimuli/freefall/redcube/freefall_redcube_1 (1)"
   },
 
+
   {
-    source_id: "redcube_take1_clip3",
-    object: "redcube",
-    take: 1,
-    clip_number: 3,
+    source_id:
+      "redcube_take1_clip3",
+
+    object:
+      "redcube",
+
+    take:
+      1,
+
+    clip_number:
+      3,
+
     base:
       "stimuli/freefall/redcube/freefall_redcube_1 (3)"
   },
 
+
   {
-    source_id: "redcube_take2_clip1",
-    object: "redcube",
-    take: 2,
-    clip_number: 1,
+    source_id:
+      "redcube_take2_clip1",
+
+    object:
+      "redcube",
+
+    take:
+      2,
+
+    clip_number:
+      1,
+
     base:
       "stimuli/freefall/redcube/freefall_redcube_2 (1)"
   },
 
+
   {
-    source_id: "redcube_take2_clip3",
-    object: "redcube",
-    take: 2,
-    clip_number: 3,
+    source_id:
+      "redcube_take2_clip3",
+
+    object:
+      "redcube",
+
+    take:
+      2,
+
+    clip_number:
+      3,
+
     base:
       "stimuli/freefall/redcube/freefall_redcube_2 (3)"
   },
 
 
   {
-    source_id: "teetotum_take1_clip5",
-    object: "teetotum",
-    take: 1,
-    clip_number: 5,
+    source_id:
+      "teetotum_take1_clip5",
+
+    object:
+      "teetotum",
+
+    take:
+      1,
+
+    clip_number:
+      5,
+
     base:
       "stimuli/freefall/teetotum/freefall_teetotum_1 (5)"
   },
 
+
   {
-    source_id: "teetotum_take1_clip6",
-    object: "teetotum",
-    take: 1,
-    clip_number: 6,
+    source_id:
+      "teetotum_take1_clip6",
+
+    object:
+      "teetotum",
+
+    take:
+      1,
+
+    clip_number:
+      6,
+
     base:
       "stimuli/freefall/teetotum/freefall_teetotum_1 (6)"
   },
 
+
   {
-    source_id: "teetotum_take2_clip5",
-    object: "teetotum",
-    take: 2,
-    clip_number: 5,
+    source_id:
+      "teetotum_take2_clip5",
+
+    object:
+      "teetotum",
+
+    take:
+      2,
+
+    clip_number:
+      5,
+
     base:
       "stimuli/freefall/teetotum/freefall_teetotum_2 (5)"
   },
 
+
   {
-    source_id: "teetotum_take2_clip6",
-    object: "teetotum",
-    take: 2,
-    clip_number: 6,
+    source_id:
+      "teetotum_take2_clip6",
+
+    object:
+      "teetotum",
+
+    take:
+      2,
+
+    clip_number:
+      6,
+
     base:
       "stimuli/freefall/teetotum/freefall_teetotum_2 (6)"
   }
@@ -160,24 +280,32 @@ const SOURCES = [
 // =========================================================
 // PROMPTS
 //
-// IMPORTANTE:
-// Estos se mantienen EN INGLÉS intencionalmente.
-// Son los prompts que deben permanecer comparables
-// con los utilizados para los modelos.
+// SE MANTIENEN EN INGLÉS INTENCIONALMENTE.
+// Son los mismos prompts que queremos conservar para
+// comparabilidad con los modelos.
 // =========================================================
 
 const ANCHOR_PROMPTS = {
 
   release:
+
     "A person holds a small solid object above a granite countertop next to a vertical measuring ruler. " +
+
     "The person releases the object at the end of the observed context.",
 
+
   impact:
+
     "A small solid object and a vertical measuring ruler are visible above a granite countertop. " +
+
     "The object makes initial contact with the countertop at the end of the observed context."
 
 };
 
+
+// =========================================================
+// CONSTRUIR ESTÍMULO
+// =========================================================
 
 function makeStimulus(
   source,
@@ -189,33 +317,48 @@ function makeStimulus(
     source_id:
       source.source_id,
 
+
     clip_id:
       `${source.source_id}__${anchor}`,
+
 
     object:
       source.object,
 
+
     take:
       source.take,
+
 
     clip_number:
       source.clip_number,
 
+
     anchor:
       anchor,
+
 
     image:
       `${source.base}__${anchor}/last_frame.png`,
 
+
     prompt:
-      ANCHOR_PROMPTS[anchor]
+      ANCHOR_PROMPTS[
+        anchor
+      ]
 
   };
+
 }
 
 
+// =========================================================
+// 24 ESTÍMULOS
+// =========================================================
+
 const ALL_24_STIMULI =
   SOURCES.flatMap(
+
     source => [
 
       makeStimulus(
@@ -229,11 +372,13 @@ const ALL_24_STIMULI =
       )
 
     ]
+
   );
 
 
 if (
-  ALL_24_STIMULI.length !== 24
+  ALL_24_STIMULI.length !==
+  24
 ) {
 
   throw new Error(
@@ -244,59 +389,74 @@ if (
 
 
 // =========================================================
-// ORDEN DE PRESENTACIÓN
-//
-// Todos ven los 24 frames.
-//
-// El orden se aleatoriza una vez por sesión.
-//
-// Evitamos, cuando es posible, que release e impact
-// del mismo video aparezcan uno inmediatamente después
-// del otro.
+// ORDEN ALEATORIO
 // =========================================================
 
 function getAssignedStimuli() {
 
   const byId =
     new Map(
+
       ALL_24_STIMULI.map(
+
         s => [
           s.clip_id,
           s
         ]
+
       )
+
     );
 
 
-  // Si ya existía un orden para esta sesión,
-  // restaurarlo.
+  // -------------------------------------------------------
+  // Restaurar el mismo orden si la página se recarga
+  // durante esta sesión.
+  // -------------------------------------------------------
 
   try {
 
     const saved =
       JSON.parse(
+
         sessionStorage.getItem(
           ORDER_KEY
         )
+
       );
 
 
     if (
-      Array.isArray(saved) &&
-      saved.length === 24 &&
-      new Set(saved).size === 24 &&
+
+      Array.isArray(
+        saved
+      ) &&
+
+      saved.length ===
+        24 &&
+
+      new Set(
+        saved
+      ).size ===
+        24 &&
+
       saved.every(
-        id => byId.has(id)
+        id =>
+          byId.has(id)
       )
+
     ) {
 
       return saved.map(
-        id => byId.get(id)
+        id =>
+          byId.get(id)
       );
 
     }
 
-  } catch (err) {
+  }
+
+  catch (err) {
 
     console.warn(
       "No se pudo restaurar el orden de los estímulos:",
@@ -306,8 +466,14 @@ function getAssignedStimuli() {
   }
 
 
-  let shuffled = null;
+  let shuffled =
+    null;
 
+
+  // -------------------------------------------------------
+  // Intentamos evitar que release e impact del mismo video
+  // queden inmediatamente juntos.
+  // -------------------------------------------------------
 
   for (
     let attempt = 0;
@@ -317,22 +483,37 @@ function getAssignedStimuli() {
 
     const candidate =
       fisherYatesShuffle(
-        [...ALL_24_STIMULI]
+        [
+          ...ALL_24_STIMULI
+        ]
       );
 
 
     const hasAdjacentPair =
       candidate.some(
-        (s, i) =>
-          i > 0 &&
-          candidate[i - 1].source_id ===
-          s.source_id
+
+        (
+          stimulus,
+          index
+        ) =>
+
+          index > 0 &&
+
+          candidate[
+            index - 1
+          ].source_id ===
+          stimulus.source_id
+
       );
 
 
-    if (!hasAdjacentPair) {
+    if (
+      !hasAdjacentPair
+    ) {
 
-      shuffled = candidate;
+      shuffled =
+        candidate;
+
       break;
 
     }
@@ -340,11 +521,15 @@ function getAssignedStimuli() {
   }
 
 
-  if (!shuffled) {
+  if (
+    !shuffled
+  ) {
 
     shuffled =
       fisherYatesShuffle(
-        [...ALL_24_STIMULI]
+        [
+          ...ALL_24_STIMULI
+        ]
       );
 
   }
@@ -353,15 +538,23 @@ function getAssignedStimuli() {
   try {
 
     sessionStorage.setItem(
+
       ORDER_KEY,
+
       JSON.stringify(
+
         shuffled.map(
-          s => s.clip_id
+          s =>
+            s.clip_id
         )
+
       )
+
     );
 
-  } catch (err) {
+  }
+
+  catch (err) {
 
     console.warn(
       "No se pudo guardar el orden de los estímulos:",
@@ -372,6 +565,7 @@ function getAssignedStimuli() {
 
 
   return shuffled;
+
 }
 
 
@@ -387,7 +581,7 @@ const jsPsych =
   initJsPsych({
 
     // -----------------------------------------------------
-    // Backup después de cada pantalla
+    // Backup local después de cada pantalla
     // -----------------------------------------------------
 
     on_data_update:
@@ -396,11 +590,19 @@ const jsPsych =
         try {
 
           localStorage.setItem(
+
             BACKUP_KEY,
-            jsPsych.data.get().json()
+
+            jsPsych
+              .data
+              .get()
+              .json()
+
           );
 
-        } catch (err) {
+        }
+
+        catch (err) {
 
           console.warn(
             "No se pudo crear el respaldo local:",
@@ -413,14 +615,17 @@ const jsPsych =
 
 
     // -----------------------------------------------------
-    // Final del estudio
+    // FINAL DEL ESTUDIO
     // -----------------------------------------------------
 
     on_finish:
       async function () {
 
         const rawTrials =
-          jsPsych.data.get().values();
+          jsPsych
+            .data
+            .get()
+            .values();
 
 
         const structuredResponses =
@@ -430,22 +635,44 @@ const jsPsych =
           );
 
 
+        const nCompleted =
+          structuredResponses.filter(
+
+            response =>
+
+              response.what !==
+                null &&
+
+              response.trajectory_strokes !==
+                null &&
+
+              response.confidence_1to5 !==
+                null
+
+          ).length;
+
+
         const payload = {
 
           study_id:
             STUDY_ID,
 
+
           frontend_version:
             FRONTEND_VERSION,
+
 
           participant_id:
             participantId,
 
+
           client_started_at:
             clientStartedAt,
 
+
           client_completed_at:
             new Date().toISOString(),
+
 
           user_agent:
             navigator.userAgent,
@@ -454,42 +681,57 @@ const jsPsych =
           n_expected_stimuli:
             24,
 
+
           n_completed_stimuli:
-            structuredResponses.length,
+            nCompleted,
+
 
           completed:
-            structuredResponses.length === 24,
+            nCompleted === 24,
 
 
           assigned_stimuli:
+
             assignedStimuli.map(
-              (s, idx) => ({
+
+              (
+                stimulus,
+                index
+              ) => ({
 
                 order:
-                  idx + 1,
+                  index + 1,
+
 
                 source_id:
-                  s.source_id,
+                  stimulus.source_id,
+
 
                 clip_id:
-                  s.clip_id,
+                  stimulus.clip_id,
+
 
                 object:
-                  s.object,
+                  stimulus.object,
+
 
                 take:
-                  s.take,
+                  stimulus.take,
+
 
                 clip_number:
-                  s.clip_number,
+                  stimulus.clip_number,
+
 
                 anchor:
-                  s.anchor,
+                  stimulus.anchor,
+
 
                 image:
-                  s.image
+                  stimulus.image
 
               })
+
             ),
 
 
@@ -503,18 +745,25 @@ const jsPsych =
         };
 
 
-        // Backup final antes de enviar
+        // -------------------------------------------------
+        // Backup final antes del POST
+        // -------------------------------------------------
 
         try {
 
           localStorage.setItem(
+
             BACKUP_KEY,
+
             JSON.stringify(
               payload
             )
+
           );
 
-        } catch (err) {
+        }
+
+        catch (err) {
 
           console.warn(
             "No se pudo guardar el respaldo final:",
@@ -536,7 +785,7 @@ const jsPsych =
 
 
           console.log(
-            "Guardado correctamente:",
+            "✅ Guardado y confirmado por el servidor:",
             result
           );
 
@@ -546,13 +795,16 @@ const jsPsych =
           );
 
 
-          showSuccessScreen();
+          showSuccessScreen(
+            result
+          );
 
+        }
 
-        } catch (error) {
+        catch (error) {
 
           console.error(
-            "ERROR AL GUARDAR:",
+            "❌ ERROR AL GUARDAR O CONFIRMAR:",
             error
           );
 
@@ -578,8 +830,10 @@ jsPsych.data.addProperties({
   study_id:
     STUDY_ID,
 
+
   frontend_version:
     FRONTEND_VERSION,
+
 
   participant_id:
     participantId
@@ -591,7 +845,8 @@ jsPsych.data.addProperties({
 // TIMELINE
 // =========================================================
 
-const timeline = [];
+const timeline =
+  [];
 
 
 // =========================================================
@@ -603,6 +858,7 @@ timeline.push({
   type:
     jsPsychHtmlButtonResponse,
 
+
   stimulus: `
 
     <div class="study-block">
@@ -611,65 +867,81 @@ timeline.push({
         Estudio de predicción física
       </h2>
 
+
       <p>
-        Verás <strong>24 imágenes</strong>,
+        Verás
+        <strong>
+          24 imágenes
+        </strong>,
         una a la vez.
       </p>
+
 
       <p>
         Para cada imagen deberás:
       </p>
+
 
       <p>
         1. Describir qué crees que hará
         el objeto a continuación.
       </p>
 
+
       <p>
         2. Dibujar la trayectoria que
         esperas que siga el centro del objeto.
       </p>
+
 
       <p>
         3. Indicar qué tan seguro/a estás
         de tu predicción.
       </p>
 
+
       <p>
-        Responde únicamente con base en
-        la imagen que se muestra en ese momento.
+        Responde únicamente con base
+        en la imagen mostrada en ese momento.
       </p>
 
     </div>
 
   `,
 
+
   choices: [
     "Comenzar"
   ],
 
+
   data: {
-    phase: "intro"
+    phase:
+      "intro"
   }
 
 });
 
 
 // =========================================================
-// LOS 24 ESTÍMULOS
+// LOS 24 EVENTOS
 // =========================================================
 
 assignedStimuli.forEach(
+
   (
     stimulus,
     stimulusIndex
   ) => {
 
+
     const trialNumber =
       stimulusIndex + 1;
 
+
     const totalTrials =
       assignedStimuli.length;
+
 
     const imageUrl =
       encodeURI(
@@ -685,6 +957,7 @@ assignedStimuli.forEach(
 
       type:
         jsPsychSurveyText,
+
 
       preamble: `
 
@@ -719,11 +992,14 @@ assignedStimuli.forEach(
           prompt:
             "¿Qué esperas que haga el objeto inmediatamente después de este momento?",
 
+
           placeholder:
             "Responde en una oración breve.",
 
+
           required:
             true,
+
 
           name:
             "what"
@@ -752,52 +1028,71 @@ assignedStimuli.forEach(
     // =====================================================
 
     const trajectoryInstruction =
-      stimulus.anchor === "release"
 
-      ? `
+      stimulus.anchor ===
+      "release"
+
+        ? `
 
           <p>
+
             <strong>
+
               Comenzando desde el centro del objeto
               que aparece sujetado en la imagen,
               dibuja una sola línea continua que muestre
               la trayectoria que esperas que siga
               el CENTRO del objeto.
+
             </strong>
+
           </p>
 
+
           <p>
+
             Termina la línea cuando esperes que
             el objeto haga contacto por primera vez
             con la superficie.
+
           </p>
 
         `
 
-      : `
+        : `
 
           <p>
+
             <strong>
+
               Comenzando desde el centro del objeto
               que aparece en contacto con la superficie,
               dibuja una sola línea continua que muestre
               la trayectoria inmediata que esperas que siga
               el CENTRO del objeto después del impacto.
+
             </strong>
+
           </p>
 
+
           <p>
+
             Termina la línea en el primer punto
             más alto que esperes que alcance el objeto,
             o cuando consideres que terminó
             su movimiento inicial después del impacto.
+
           </p>
 
+
           <p>
+
             Si esperas que prácticamente no haya
             movimiento después del impacto,
             haz un clic o un trazo muy corto
             en el centro del objeto.
+
           </p>
 
         `;
@@ -816,6 +1111,7 @@ assignedStimuli.forEach(
       canvas_width:
         700,
 
+
       canvas_height:
         390,
 
@@ -823,12 +1119,14 @@ assignedStimuli.forEach(
       stroke_width:
         4,
 
+
       stroke_color:
         "#00aa44",
 
 
       save_strokes:
         true,
+
 
       save_final_image:
         false,
@@ -859,6 +1157,7 @@ assignedStimuli.forEach(
       show_finished_button:
         true,
 
+
       finished_button_label:
         "Continuar",
 
@@ -871,11 +1170,14 @@ assignedStimuli.forEach(
           "trajectory"
         ),
 
+
         canvas_width:
           700,
 
+
         canvas_height:
           390,
+
 
         stimulus_image:
           stimulus.image
@@ -900,13 +1202,18 @@ assignedStimuli.forEach(
         <div class="trial-container">
 
           <p class="trial-progress">
+
             Evento ${trialNumber}
             de ${totalTrials}
+
           </p>
 
+
           <p>
+
             ¿Qué tan seguro/a estás
             de la predicción que acabas de hacer?
+
           </p>
 
         </div>
@@ -920,6 +1227,7 @@ assignedStimuli.forEach(
 
           prompt:
             "Nivel de confianza",
+
 
           labels: [
 
@@ -935,8 +1243,10 @@ assignedStimuli.forEach(
 
           ],
 
+
           required:
             true,
+
 
           name:
             "confidence"
@@ -947,8 +1257,12 @@ assignedStimuli.forEach(
 
 
       button_label:
-        trialNumber === totalTrials
+
+        trialNumber ===
+        totalTrials
+
           ? "Finalizar estudio"
+
           : "Siguiente evento",
 
 
@@ -960,24 +1274,25 @@ assignedStimuli.forEach(
         ),
 
 
-      // jsPsych devuelve internamente:
-      //
-      // 0 1 2 3 4
-      //
-      // Guardamos:
-      //
-      // 1 2 3 4 5
+      // jsPsych devuelve 0..4.
+      // Lo convertimos a 1..5.
 
       on_finish:
         function (data) {
 
           const raw =
-            data.response.confidence;
+            data.response
+              .confidence;
 
 
           if (
-            raw !== null &&
-            raw !== undefined
+
+            raw !==
+              null &&
+
+            raw !==
+              undefined
+
           ) {
 
             data.confidence_raw_index =
@@ -998,11 +1313,12 @@ assignedStimuli.forEach(
     });
 
   }
+
 );
 
 
 // =========================================================
-// EJECUTAR ESTUDIO
+// EJECUTAR
 // =========================================================
 
 jsPsych.run(
@@ -1011,13 +1327,15 @@ jsPsych.run(
 
 
 // =========================================================
-// CONSTRUIR RESPUESTAS LIMPIAS
+// METADATOS POR TRIAL
 // =========================================================
 
 function trialMetadata(
+
   stimulus,
   stimulusIndex,
   phase
+
 ) {
 
   return {
@@ -1025,76 +1343,104 @@ function trialMetadata(
     stimulus_index:
       stimulusIndex,
 
+
     stimulus_order:
       stimulusIndex + 1,
+
 
     source_id:
       stimulus.source_id,
 
+
     clip_id:
       stimulus.clip_id,
+
 
     object:
       stimulus.object,
 
+
     take:
       stimulus.take,
+
 
     clip_number:
       stimulus.clip_number,
 
+
     anchor:
       stimulus.anchor,
 
+
     phase:
       phase,
+
 
     stimulus_image:
       stimulus.image
 
   };
+
 }
 
 
+// =========================================================
+// RESPUESTAS ESTRUCTURADAS
+// =========================================================
+
 function buildStructuredResponses(
+
   rawTrials,
   stimuli
+
 ) {
 
   return stimuli.map(
+
     (
       stimulus,
       index
     ) => {
 
+
       const matches =
         rawTrials.filter(
+
           row =>
+
             row.clip_id ===
             stimulus.clip_id
+
         );
 
 
       const whatTrial =
         matches.find(
+
           row =>
-            row.phase === "what"
+            row.phase ===
+            "what"
+
         );
 
 
       const trajectoryTrial =
         matches.find(
+
           row =>
             row.phase ===
             "trajectory"
+
         );
 
 
       const confidenceTrial =
         matches.find(
+
           row =>
             row.phase ===
             "confidence"
+
         );
 
 
@@ -1103,66 +1449,113 @@ function buildStructuredResponses(
         stimulus_order:
           index + 1,
 
+
         source_id:
           stimulus.source_id,
+
 
         clip_id:
           stimulus.clip_id,
 
+
         object:
           stimulus.object,
+
 
         take:
           stimulus.take,
 
+
         clip_number:
           stimulus.clip_number,
 
+
         anchor:
           stimulus.anchor,
+
 
         image:
           stimulus.image,
 
 
+        // WHAT
+
         what:
-          whatTrial?.response?.what ??
+
+          whatTrial
+            ?.response
+            ?.what ??
+
           null,
+
 
         what_rt_ms:
-          whatTrial?.rt ??
+
+          whatTrial
+            ?.rt ??
+
           null,
 
+
+        // TRAJECTORY
 
         trajectory_strokes:
-          trajectoryTrial?.strokes ??
+
+          trajectoryTrial
+            ?.strokes ??
+
           null,
+
 
         trajectory_rt_ms:
-          trajectoryTrial?.rt ??
+
+          trajectoryTrial
+            ?.rt ??
+
           null,
 
+
         canvas_width:
-          trajectoryTrial?.canvas_width ??
+
+          trajectoryTrial
+            ?.canvas_width ??
+
           700,
 
+
         canvas_height:
-          trajectoryTrial?.canvas_height ??
+
+          trajectoryTrial
+            ?.canvas_height ??
+
           390,
 
 
+        // CONFIDENCE
+
         confidence_1to5:
-          confidenceTrial?.confidence_1to5 ??
-          confidenceTrial?.response?.confidence ??
+
+          confidenceTrial
+            ?.confidence_1to5 ??
+
+          confidenceTrial
+            ?.response
+            ?.confidence ??
+
           null,
 
+
         confidence_rt_ms:
-          confidenceTrial?.rt ??
+
+          confidenceTrial
+            ?.rt ??
+
           null
 
       };
 
     }
+
   );
 
 }
@@ -1177,10 +1570,12 @@ function saveToDrive(
 ) {
 
   return new Promise(
+
     function (
       resolve,
       reject
     ) {
+
 
       const nonce =
         generateId();
@@ -1215,17 +1610,22 @@ function saveToDrive(
 
 
       if (
+
         !iframe ||
         !form ||
         !payloadInput ||
         !nonceInput
+
       ) {
 
         reject(
+
           new Error(
             "No se encontró el formulario de guardado."
           )
+
         );
+
 
         return;
 
@@ -1235,9 +1635,14 @@ function saveToDrive(
       let finished =
         false;
 
+
       let timeoutId =
         null;
 
+
+      // ---------------------------------------------------
+      // Limpiar listener y timer
+      // ---------------------------------------------------
 
       function cleanup() {
 
@@ -1248,7 +1653,8 @@ function saveToDrive(
 
 
         if (
-          timeoutId !== null
+          timeoutId !==
+          null
         ) {
 
           clearTimeout(
@@ -1260,28 +1666,40 @@ function saveToDrive(
       }
 
 
+      // ---------------------------------------------------
+      // RECIBIR CONFIRMACIÓN
+      //
+      // IMPORTANTE:
+      //
+      // NO comprobamos:
+      //
+      // event.source === iframe.contentWindow
+      //
+      // porque Google Apps Script introduce un iframe
+      // sandbox interno.
+      //
+      // En su lugar verificamos:
+      //
+      // 1. type
+      // 2. nonce único
+      //
+      // ---------------------------------------------------
+
       function messageHandler(
         event
       ) {
-
-        if (
-          event.source !==
-          iframe.contentWindow
-        ) {
-
-          return;
-
-        }
-
 
         const message =
           event.data;
 
 
         if (
+
           !message ||
+
           message.type !==
-          "wm-save-result"
+            "wm-save-result"
+
         ) {
 
           return;
@@ -1290,12 +1708,19 @@ function saveToDrive(
 
 
         if (
-          message.nonce !== nonce
+          message.nonce !==
+          nonce
         ) {
 
           return;
 
         }
+
+
+        console.log(
+          "ACK recibido desde Apps Script:",
+          message
+        );
 
 
         finished =
@@ -1313,13 +1738,20 @@ function saveToDrive(
             message
           );
 
-        } else {
+        }
+
+        else {
 
           reject(
+
             new Error(
+
               message.error ||
+
               "Error desconocido del servidor."
+
             )
+
           );
 
         }
@@ -1332,6 +1764,10 @@ function saveToDrive(
         messageHandler
       );
 
+
+      // ---------------------------------------------------
+      // Preparar POST
+      // ---------------------------------------------------
 
       form.action =
         SCRIPT_URL;
@@ -1347,10 +1783,15 @@ function saveToDrive(
         nonce;
 
 
+      // ---------------------------------------------------
+      // TIMEOUT
+      // ---------------------------------------------------
+
       timeoutId =
         setTimeout(
 
           function () {
+
 
             if (
               finished
@@ -1365,9 +1806,11 @@ function saveToDrive(
 
 
             reject(
+
               new Error(
                 "El servidor no confirmó el guardado en 25 segundos."
               )
+
             );
 
           },
@@ -1377,9 +1820,14 @@ function saveToDrive(
         );
 
 
+      // ---------------------------------------------------
+      // ENVIAR
+      // ---------------------------------------------------
+
       form.submit();
 
     }
+
   );
 
 }
@@ -1449,6 +1897,10 @@ function showStatusScreen(
 }
 
 
+// =========================================================
+// GUARDANDO
+// =========================================================
+
 function showSavingScreen() {
 
   showStatusScreen(`
@@ -1457,8 +1909,10 @@ function showSavingScreen() {
       Guardando respuestas...
     </h2>
 
+
     <p>
-      Por favor, no cierres esta página.
+      Por favor,
+      no cierres esta página.
     </p>
 
   `);
@@ -1466,7 +1920,13 @@ function showSavingScreen() {
 }
 
 
-function showSuccessScreen() {
+// =========================================================
+// ÉXITO
+// =========================================================
+
+function showSuccessScreen(
+  result
+) {
 
   showStatusScreen(`
 
@@ -1474,19 +1934,29 @@ function showSuccessScreen() {
       ¡Gracias!
     </h2>
 
+
     <p>
       Tus respuestas se guardaron correctamente.
     </p>
 
+
     <p class="small-text">
+
       ID del participante:
-      ${escapeHtml(participantId)}
+      ${escapeHtml(
+        participantId
+      )}
+
     </p>
 
   `);
 
 }
 
+
+// =========================================================
+// ERROR
+// =========================================================
 
 function showErrorScreen(
   payload,
@@ -1499,24 +1969,41 @@ function showErrorScreen(
       No pudimos confirmar el envío.
     </h2>
 
+
     <p>
+
       Tus respuestas siguen guardadas
       localmente en este navegador.
+
     </p>
+
 
     <p>
+
       Intenta enviarlas nuevamente.
+
     </p>
 
+
     <button
+
       id="retry-save"
+
       class="retry-button"
+
     >
+
       Intentar nuevamente
+
     </button>
 
+
     <p class="small-text">
-      ${escapeHtml(error.message)}
+
+      ${escapeHtml(
+        error.message
+      )}
+
     </p>
 
   `);
@@ -1532,6 +2019,7 @@ function showErrorScreen(
 
       async function () {
 
+
         showSavingScreen();
 
 
@@ -1544,7 +2032,7 @@ function showErrorScreen(
 
 
           console.log(
-            "Guardado correctamente después del reintento:",
+            "✅ Guardado correctamente después del reintento:",
             result
           );
 
@@ -1554,15 +2042,18 @@ function showErrorScreen(
           );
 
 
-          showSuccessScreen();
+          showSuccessScreen(
+            result
+          );
 
+        }
 
-        } catch (
+        catch (
           secondError
         ) {
 
           console.error(
-            "El reintento falló:",
+            "❌ El reintento falló:",
             secondError
           );
 
@@ -1588,8 +2079,10 @@ function showErrorScreen(
 function generateId() {
 
   if (
+
     window.crypto &&
     crypto.randomUUID
+
   ) {
 
     return crypto.randomUUID();
@@ -1614,31 +2107,40 @@ function generateId() {
 }
 
 
+// =========================================================
+// SHUFFLE
+// =========================================================
+
 function fisherYatesShuffle(
   array
 ) {
 
   for (
+
     let i =
       array.length - 1;
 
     i > 0;
 
     i--
+
   ) {
 
     const j =
       Math.floor(
+
         Math.random() *
-        (i + 1)
+        (
+          i + 1
+        )
+
       );
 
 
     [
       array[i],
       array[j]
-    ] =
-    [
+    ] = [
       array[j],
       array[i]
     ];
@@ -1650,6 +2152,10 @@ function fisherYatesShuffle(
 
 }
 
+
+// =========================================================
+// ESCAPE HTML
+// =========================================================
 
 function escapeHtml(
   value

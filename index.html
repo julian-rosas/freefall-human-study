@@ -16,14 +16,18 @@
   </title>
 
 
-  <!-- jsPsych -->
+  <!-- =====================================================
+       jsPsych
+       ===================================================== -->
 
   <script
     src="https://unpkg.com/jspsych@8.3.0">
   </script>
 
 
-  <!-- Plugins -->
+  <!-- =====================================================
+       Plugins
+       ===================================================== -->
 
   <script
     src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0">
@@ -42,7 +46,9 @@
   </script>
 
 
-  <!-- CSS de jsPsych -->
+  <!-- =====================================================
+       CSS de jsPsych
+       ===================================================== -->
 
   <link
     rel="stylesheet"
@@ -50,11 +56,13 @@
   >
 
 
-  <!-- CSS del estudio -->
+  <!-- =====================================================
+       CSS del estudio
+       ===================================================== -->
 
   <link
     rel="stylesheet"
-    href="style.css?v=all24-v3"
+    href="style.css?v=all24-v4"
   >
 
 </head>
@@ -63,22 +71,26 @@
 <body>
 
 
-  <!--
-    Iframe invisible utilizado para recibir
-    la confirmación de Google Apps Script.
-  -->
+  <!-- =====================================================
+       IFRAME INVISIBLE
+
+       Google Apps Script carga aquí la respuesta del POST.
+       El participante no lo ve.
+       ===================================================== -->
 
   <iframe
     id="save_target"
     name="save_target"
-    style="display:none;">
+    style="display:none;"
+  >
   </iframe>
 
 
-  <!--
-    Formulario invisible que envía
-    el JSON completo a Google Apps Script.
-  -->
+  <!-- =====================================================
+       FORMULARIO INVISIBLE
+
+       Envía el JSON completo a Google Apps Script.
+       ===================================================== -->
 
   <form
     id="save_form"
@@ -93,6 +105,7 @@
       name="payload"
     >
 
+
     <input
       type="hidden"
       id="save_nonce"
@@ -102,10 +115,12 @@
   </form>
 
 
-  <!-- Estudio -->
+  <!-- =====================================================
+       EXPERIMENTO
+       ===================================================== -->
 
   <script
-    src="app.js?v=all24-v3">
+    src="app.js?v=all24-v4">
   </script>
 
 

@@ -8,7 +8,7 @@ const STUDY_ID =
   "freefall_rq3_v1";
 
 const FRONTEND_VERSION =
-  "wacv_all24_v4_es_ack";
+  "wacv_all24_v5_es_ack";
 
 
 const SCRIPT_URL =
@@ -1937,6 +1937,13 @@ function showSuccessScreen(
 
     <p>
       Tus respuestas se guardaron correctamente.
+    </p>
+
+
+    <p>
+      Por favor, toma una captura de pantalla de esta página
+      y envíasela a la persona que te compartió la encuesta
+      para confirmar que completaste el estudio.
     </p>
 
 
